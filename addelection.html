@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Election</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Your custom styles can go here */
+        body {
+            background-color: #061f2f; /* Updated background color */
+            font-family: Arial, sans-serif; /* Changed font family */
+        }
+
+        h3 {
+            font-size: 26px; /* Changed font size */
+            color: #061f2f; /* Changed color */
+            font-weight: bold;
+        }
+
+        #addElectionForm {
+            width: 40%;
+            margin: 0 auto;
+            background-color: rgba(241, 235, 235, 0.5); /* Updated background color with transparency */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #389ddb;
+            text-align: center;
+        }
+
+        #addElectionForm input[type="text"],
+        #addElectionForm input[type="file"],
+       
+        #addElectionForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #addElectionForm input[type="text"]#startDate,
+        #addElectionForm input[type="text"]#endDate {
+            width: 100%; /* Adjusted width */
+            display: inline-block; /* Added to display inline */
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        #addElectionForm input[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #061f2f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Add any header content here if needed -->
+    </header>
+    <main>
+        <div id="content">
+            <form id="addElectionForm">
+                <h3>Add Election</h3>
+                <label for="electionName">Election Name:</label><br>
+                <input type="text" id="electionName" name="electionName" required><br>
+                <label for="startDate">Start Date (dd/mm/yyyy): </label><br>
+                <input type="text" id="startDate" name="startDate" required><br>
+                <label for="endDate">End Date (dd/mm/yyyy):  </label><br>
+                <input type="text" id="endDate" name="endDate" required><br>
+                <label for="electionImage">Upload Election Image:</label><br>
+                <input type="file" id="electionImage" name="electionImage" accept="image/*" required><br>
+                <label for="votingInstructions">Voting Instructions:</label><br>
+                <textarea id="votingInstructions" name="votingInstructions"></textarea><br>
+                <span class="error">Please fill out this field.</span><br>
+                <input type="submit" value="ADD ELECTION">
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="addelection.js"></script>
+  
+</body>
+</html>

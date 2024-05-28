@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Voters</title>
+</head>
+<body>
+    <h1>Logged-In Voters</h1>
+    <ul id="loggedInVotersList"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedInVotersList = document.getElementById('loggedInVotersList');
+            let loggedInVoters = JSON.parse(localStorage.getItem('loggedInVoters'));
+
+            if (loggedInVoters && loggedInVoters.length > 0) {
+                loggedInVoters.forEach(email => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = email;
+                    loggedInVotersList.appendChild(listItem);
+                });
+            } else {
+                const noVotersMessage = document.createElement('p');
+                noVotersMessage.textContent = 'No logged-in voters.';
+                loggedInVotersList.appendChild(noVotersMessage);
+            }
+
+            const logoutButton = document.getElementById('logout-button');
+
+            logoutButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default action of the link
+                // Clear the loggedInVoters array in localStorage
+                localStorage.removeItem('loggedInVoters');
+                // Redirect to the home page (index.html)
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

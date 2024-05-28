@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #061f2f;
+        }
+
+        nav {
+            background: linear-gradient(to right, #061f2f, #0062cc);
+            color: #fff;
+            padding: 10px;
+            padding-bottom: 20px; /* Increase bottom padding for the gap */
+            box-shadow: 0 0 10px rgba(42, 139, 199, 0.5); /* Updated box-shadow with correct syntax */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Display items in a row */
+            align-items: center; /* Align items vertically in the center */
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: #061f2f;
+        }
+
+        .icon {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 1300px; /* Adjusted maximum width */
+            height: 620px; /* Adjusted height */
+            margin: 20px; /* Add margin for the gap */
+            padding-left: 90px;
+            position: relative; /* Position relative for parent */
+            opacity: 0.5;
+        }
+
+        /* Apply opacity and dark blue background to the image */
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" id="homeLink">HOME</a></li>
+            <li><a href="addelection.html" id="addElection">ADD ELECTION</a></li>
+            <li><a href="addcandidate.html" id="addCandidate">ADD CANDIDATE</a></li>
+            <li><a href="view.html" id="viewResults">VIEW RESULTS</a></li>
+            <li><a href="viewvoter.html" id="viewVoters">VIEW VOTERS</a></li>
+            <li><a href="#" id="logout">LOGOUT</a></li>
+        </ul>
+    </nav>
+    <img src="img/istockphoto-1224860284-1024x1024-transformed-transformed.jpeg">
+    <div id="content">
+        <!-- The content will be loaded here -->
+    </div>
+
+    <script src="addelection.js"></script>
+</body>
+</html>

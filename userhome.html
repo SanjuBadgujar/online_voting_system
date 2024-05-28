@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #061f2f;
+        }
+
+        nav {
+            background: linear-gradient(to right, #061f2f, #0062cc);
+            color: #fff;
+            padding: 10px;
+            padding-bottom: 20px; /* Increase bottom padding for the gap */
+            box-shadow: 0 0 10px #2a8bc7;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Display items in a row */
+            align-items: center; /* Align items vertically in the center */
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 8px 12px; 
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: #061f2f;
+        }
+
+        .icon {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 1300px; /* Set maximum width for responsiveness */
+            height: 600px;
+            margin: 20px; /* Add margin for the gap */
+            padding-left: 80px;
+            box-shadow: 1 2 10px #2a8bc7;
+            background-size: cover; /* Cover the entire container */
+            background-position: center; /* Center the background image */
+            height: 600px;
+            opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><span class="icon">&#128100;</span>User </li> <!-- Emoji for user icon -->
+            <li><a href="userelection.html">Election</a></li>
+            <li><a href="home.html">Logout</a></li>
+        </ul>
+    </nav>
+    <img src="img/Screenshot_2024-04-13_154510-transformed.png" alt="User Home Image">
+    <script src="election.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoutButton = document.getElementById('logout-button');
+
+            logoutButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default action of the link
+                // Clear the loggedInVoters array in localStorage
+                localStorage.removeItem('loggedInVoters');
+                // Redirect to the home page (index.html)
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

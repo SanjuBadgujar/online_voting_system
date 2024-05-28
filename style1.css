@@ -1,0 +1,118 @@
+body{
+    background-color: #061f2f;
+}
+h1{
+  font-size: 26px; /* Change the font size as needed */
+    color: #061f2f; /* Change the color using hex, RGB, or color name */
+    font-family: Arial, sans-serif; /* Change the font family to your preference */
+    font-weight: bold; 
+}
+#login-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(241, 235, 235, 0.5); /* Updated with rgba for transparency */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #389ddb;
+  text-align: center;
+
+  }
+  
+  #fingerprint-scanner {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px auto;
+    background-color: #ddd;
+    border-radius: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  #fingerprint-scanner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  #login-form {
+    margin-bottom: 20px;
+  }
+  
+  #login-form label {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  #login-form input[type="email"],
+  #login-form input[type="password"],
+  #login-form input[type="text"],
+  #login-form input[type="file"] 
+  {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  #login-form button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #061f2f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #login-form a {
+    display: block;
+    margin: 10px auto;
+    color: #061f2f;
+    text-decoration: none;
+  }
+  
+  #voter-signup-button {
+    display: block;
+   
+    background-color: 061f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #login-button {
+    display: block;
+    margin-left: 250px;
+    padding: 10px 20px;
+    background-color: #061f2f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #voter-login-button{
+    display: block;
+    margin-left: 250px;
+    padding: 10px 20px;
+    background-color: #061f2f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .voter-button {
+    margin-right: 10px;
+  }
+  
+  .voter-button:last-child {
+    margin-right: 0;
+  }
+  

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Candidate</title>
+    <style>
+        body {
+            background-color: #061f2f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #061f2f;
+            margin-bottom: 20px;
+        }
+        #candidateCount{
+            width: 40%;
+            margin: 0 auto;
+            background-color: #ccc;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #e5299d;
+        }
+
+        #addCandidateForm {
+            width: 60%;
+            margin: 0 auto;
+            background-color: rgba(241, 235, 235, 0.5);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #389ddb;
+        }
+
+        .form-label {
+            display: block;
+            margin-top: 20px;
+            color: #061d28; /* Change label color */
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #061f2f;
+        }
+
+        #candidateFields {
+            margin-top: 20px;
+        }
+
+        #submitButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #061f2f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Candidate</h1>
+    <form id="addCandidateForm">
+        <!-- Input field to specify the number of candidates -->
+        <label for="electionName" class="form-label">Election Name:</label>
+        <input type="text" id="electionName" class="form-input" required><br>
+
+        <label for="candidateCount" class="form-label">Number of Candidates:</label>
+        <input type="number" id="candidateCount" min="1" max="10" class="form-input" required><br>
+
+        <!-- Dynamically generated input fields based on the specified count -->
+        <div id="candidateFields"></div>
+        
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <script>
+        const addCandidateForm = document.getElementById('addCandidateForm');
+
+        addCandidateForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+         
+            const electionName = document.getElementById('electionName').value;
+            const candidateCount = document.getElementById('candidateCount').valueAsNumber;
+            const candidates = [];
+
+            for (let i = 1; i <= candidateCount; i++) {
+                const candidateName = document.getElementById(`candidateName${i}`).value;
+                const partyName = document.getElementById(`partyName${i}`).value;
+                const profilePhoto = document.getElementById(`profilePhoto${i}`).value;
+
+                candidates.push({
+                    election: electionName,
+                    name: candidateName,
+                    party: partyName,
+                    photo: profilePhoto
+                });
+            }
+
+            localStorage.setItem('candidates', JSON.stringify(candidates));
+            localStorage.setItem('electionName', electionName);
+
+            alert('Candidates added successfully!');
+            addCandidateForm.reset();
+        });
+
+        document.getElementById('candidateCount').addEventListener('input', function() {
+            const candidateCount = this.valueAsNumber;
+            const candidateFields = document.getElementById('candidateFields');
+
+            // Clear existing fields
+            candidateFields.innerHTML = '';
+
+            // Create input fields based on the specified count
+            for (let i = 1; i <= candidateCount; i++) {
+                const candidateDiv = document.createElement('div');
+                candidateDiv.innerHTML = `
+                    <label for="candidateName${i}" class="form-label">Candidate Name:</label>
+                    <input type="text" id="candidateName${i}" class="form-input" required><br>
+                    <label for="partyName${i}" class="form-label">Party Name:</label>
+                    <input type="text" id="partyName${i}" class="form-input" required><br>
+                    <label for="profilePhoto${i}" class="form-label">Profile Photo URL:</label>
+                    <input type="url" id="profilePhoto${i}" class="form-input" required><br>
+                `;
+                candidateFields.appendChild(candidateDiv);
+            }
+        });
+    </script>
+</body>
+</html>

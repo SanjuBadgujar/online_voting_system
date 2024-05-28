@@ -1,0 +1,164 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Page</title>
+    <style>
+      /* Body styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #061f2f;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Heading styles */
+      h1 {
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Form container styles */
+      .form-container {
+        min-width: 600px;
+        height: auto;
+        margin: 20px auto;
+        background-color: rgba(255, 255, 255, 0.5); /* Increased transparency */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #2a8bc7;
+        animation: slideIn 1s ease-in-out;
+        backdrop-filter: blur(5px);
+      }
+
+      /* Label styles */
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #555;
+        font-size: 16px;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Select styles */
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: rgba(255, 255, 255, 0.5); /* Increased transparency */
+        color: #333;
+        font-size: 16px;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Button styles */
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #07213c;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #061d36;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        0% {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="electionDetails"></div>
+
+    <div class="form-container" id="formContainer">
+      <h2 style="text-align: center; color: #06182b;">Select Election:</h2>
+      <label for="electionName">Choose an election:</label>
+      <select id="electionName"></select>
+      <button type="button" id="submitButton">Submit</button>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+              const electionSelect = document.getElementById('electionName');
+              const submitButton = document.getElementById('submitButton');
+
+              // Function to populate elections dropdown
+              function populateElectionsDropdown() {
+                  // Clear existing options
+                  electionSelect.innerHTML = '';
+
+                  // Retrieve all elections from localStorage
+                  const allElectionsJSON = localStorage.getItem('allElections');
+                  if (allElectionsJSON) {
+                      const allElections = JSON.parse(allElectionsJSON);
+                      allElections.forEach(election => {
+                          const option = document.createElement('option');
+                          option.value = election.electionName;
+                          option.textContent = election.electionName;
+                          electionSelect.appendChild(option);
+                      });
+                  } else {
+                      console.error('No elections found in localStorage.');
+                  }
+              }
+
+              // Populate elections dropdown on page load
+              populateElectionsDropdown();  
+
+              submitButton.addEventListener('click', () => {
+                  const selectedElection = electionSelect.value;
+                  if (selectedElection) {
+                      localStorage.setItem('currentElection', JSON.stringify({ electionName: selectedElection }));
+                      // Redirect to Electionpage.html
+                      window.location.href = 'Electionpage.html';
+                  } else {
+                      alert('Please select an election.');
+                  }
+              });
+          });
+    </script>
+  </body>
+  </html>
+
+
+

@@ -1,0 +1,123 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            .navbar {
+                background-color: #061f2f;
+                color: #fff;
+                padding: 10px 0;
+                box-shadow: #00ccff;
+            }
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                /* max-width: 1200px; */
+                /* margin: 0 auto; */
+                padding: 0 20px;
+            }
+            .logo{
+                margin-right: initial;
+            }
+            .logo img {
+                width: 50px;
+                height: auto;
+            }
+
+            .nav-links {
+                list-style-type: none;
+                display: flex;
+            }
+
+            .nav-links li {
+                margin-right: 15px;
+            }
+
+            .nav-links a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #ffa500;
+            }
+
+            .content {
+                max-width: 1200px;
+                margin: 20px auto;
+                padding: 0 20px;
+            }
+            .content h1 {
+    font-size: 24px; /* Change the font size as needed */
+    color: #1faee2; /* Change the color using hex, RGB, or color name */
+    font-family: Arial, sans-serif; /* Change the font family to your preference */
+    font-weight: bold; /* Make the text bold */
+}
+
+.content p {
+    font-size: 18px; /* Change the font size as needed */
+    color: #ed0c62; /* Change the color using hex, RGB, or color name */
+    font-family: 'Times New Roman', serif; /* Change the font family to your preference */
+    font-weight: bold; /* Make the text bold */
+}
+
+            img {
+                width: 1000px;
+                height: 490px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="login.html" id="user-login">User Login</a></li>
+                    <li><a href="index.html" id="admin-login">Admin Login</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+        <div class="content">
+            <!-- Your main content here -->
+            <h1>Welcome to our voting Website</h1>
+            <p>One man, one vote"!.</p>
+            <img src="img/votelogo.jpg" alt="">
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const userLoginButton = document.getElementById('user-login');
+                const adminLoginButton = document.getElementById('admin-login');
+                
+            
+                userLoginButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    window.location.href = 'login.html';
+                    console.log('User login clicked');
+                });
+            
+                adminLoginButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    window.location.href = 'index.html';
+                    console.log('Admin login clicked');
+                });
+            
+                
+            });
+        </script>
+    </body>
+    </html>
